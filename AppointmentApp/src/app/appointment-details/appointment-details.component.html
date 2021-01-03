@@ -1,0 +1,58 @@
+
+<div class="row">
+     <div class="col-md-4">
+        <app-appointment-detail-form></app-appointment-detail-form>
+        <button type="button" class="btn btn-danger" (click)="logOut()">LOGOUT</button>
+     </div>
+      <div class="col-md-3">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th>Doctor Name</th>
+                    <th>Department</th>
+                    <th>Phone Number</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let dd of service.list1">
+                    <td>{{dd.doctorName}}</td>
+                    <td>{{dd.department}}</td>
+                    <td>{{dd.phoneNumber}}</td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+    
+        <div class="col-md-5">
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Appointment No.</th>
+                        <th>Full Name</th>
+                        <th>Gender</th>
+                        <th>Age</th>
+                        <th>Department</th>
+                        <th>Doctor Name</th>
+                        <th>Appointment Date</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let ad of service.list">
+                        <td>{{ad.appointmentDetailId}}</td>
+                        <td>{{ad.fullName}}</td>
+                        <td>{{ad.gender}}</td>
+                        <td>{{ad.age}}</td>
+                        <td>{{ad.department}}</td>
+                        <td>{{ad.doctorName}}</td>
+                        <td>{{ad.appointmentDate}}</td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+    
+        </div>
+    
+</div>
+    

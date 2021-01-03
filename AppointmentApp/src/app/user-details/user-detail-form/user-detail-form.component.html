@@ -1,0 +1,39 @@
+<form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+<input type="hidden" name="userDetailId"
+[value]="service.formData.userDetailId"/>
+
+<div class="form-row">
+
+
+<div class="form-group col-md-4 ">
+    <label>FULL NAME</label>
+    <input  class="form-control form-control-lg" placeholder="Full Name"
+    name="fullName" #fullName="ngModel" [(ngModel)]="service.formData.fullName"
+    required [class.invalid]="fullName.invalid && fullName.touched">
+</div>
+<div class="form-group col-md-4 ">
+    <label>EMAIL ID</label>
+    <input type="email" class="form-control form-control-lg" placeholder="Your Email Id"
+    name="emailId" #emailId="ngModel" [(ngModel)]="service.formData.emailId">
+</div>
+
+<div class="form-group col-md-4">
+    <label>USER NAME</label>
+    <input  class="form-control form-control-lg" placeholder="User Name"
+    name="userName" #userName="ngModel" [(ngModel)]="service.formData.userName"
+    required [class.invalid]="userName.invalid && userName.touched">
+</div>
+<div class="form-group col-md-4">
+    <label>PASSWORD</label>
+    <input type="password" class="form-control form-control-lg" placeholder="Type Password"
+    name="password" #password="ngModel" [(ngModel)]="service.formData.password"
+    required minlength="8" [class.invalid]="password.invalid && password.touched">
+</div>
+
+</div>
+
+<div class="form-group">
+    <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">SIGN UP</button>
+</div>
+
+</form>
