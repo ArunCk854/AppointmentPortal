@@ -21,31 +21,19 @@ export class AppointmentDetailFormComponent implements OnInit {
 onSubmit(form:NgForm){
   if (this.service.formData.appointmentDetailId ==0)
     this.insertRecord(form)
-  else
-    this.updateRecord(form);
 }
 
 insertRecord(form:NgForm){
   this.service.postAppointmentDetail().subscribe(
-    res =>{
+    (res:any) =>{
       this.resetForm(form);
       this.service.refreshList();
-      this.toastr.success('Appointment Booked Successfully','Appointment Booking')
+      this.toastr.success('Appointment Booked Successfully, and Token Number:'+res.appointmentDetailId,'Appointment Booking');
     },
     err =>{ console.log(err); }
   );
 }
 
-updateRecord(form:NgForm){
-  this.service.putAppointmentDetail().subscribe(
-    res =>{
-      this.resetForm(form);
-      this.service.refreshList();
-      this.toastr.info('Updated Successfully','Appointment Booking')
-    },
-    err =>{ console.log(err); }
-  );
-}
 
 
 resetForm(form:NgForm){

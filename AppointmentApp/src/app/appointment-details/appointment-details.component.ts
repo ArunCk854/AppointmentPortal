@@ -30,17 +30,5 @@ export class AppointmentDetailsComponent implements OnInit {
     this.service.formData = Object.assign({}, selectedRecord);
   }
 
-  onDelete(id:number){
-    if(confirm('Are You Sure?'))
-    {
-    this.service.deleteAppointmentDetail(id)
-    .subscribe(
-       res=>{
-         this.service.refreshList();
-         this.toastr.error("Cancelled Appointment Successfully",'Appointment Booking');
-       },
-       err =>{console.log(err)}
-    )
-      }
-     }
+  
 }
