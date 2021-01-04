@@ -28,7 +28,7 @@ insertRecord(form:NgForm){
     (res:any) =>{
       this.resetForm(form);
       this.service.refreshList();
-      this.toastr.success('Appointment Booked Successfully, and Token Number:'+res.appointmentDetailId,'Appointment Booking');
+      this.toastr.success('Appointment Booked Successfully, and TOKEN NO.'+res.appointmentDetailId,'Appointment Booking');
     },
     err =>{ console.log(err); }
   );

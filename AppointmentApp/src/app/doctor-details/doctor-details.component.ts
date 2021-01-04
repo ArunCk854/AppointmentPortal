@@ -18,6 +18,7 @@ export class DoctorDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.refreshList();
+    this.service.refreshList1();
   }
 
    logOut(){
@@ -35,7 +36,7 @@ export class DoctorDetailsComponent implements OnInit {
     this.service.deleteDoctorDetail(id)
     .subscribe(
        res=>{
-         this.service.refreshList();
+         this.service.refreshList1();
          this.toastr.error("Deleted Successfully",'Doctor list');
        },
        err =>{console.log(err)}

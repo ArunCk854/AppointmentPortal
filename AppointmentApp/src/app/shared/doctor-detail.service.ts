@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AppointmentDetail } from './appointment-detail.model';
 import { DoctorDetail } from './doctor-detail.model';
 
 @Injectable({
@@ -11,6 +12,7 @@ export class DoctorDetailService {
   formData:DoctorDetail=new DoctorDetail();
   readonly baseURL = 'http://localhost:57231/api/DoctorDetails'
   list1: DoctorDetail[];
+  list: AppointmentDetail[];
 
  postDoctorDetail(){
   return this.http.post(this.baseURL,this.formData);
@@ -23,11 +25,17 @@ export class DoctorDetailService {
    return this.http.delete(`${this.baseURL}/${id}`);
   }
 
- refreshList() {
+ refreshList1() {
   this.http.get(this.baseURL)
   .toPromise()
   .then(res => this.list1 = res as DoctorDetail[]);
  }
+  refreshList(){
+    this.http.get('http://localhost:57231/api/AppointmentDetails')
+    .toPromise()
+    .then(res => this.list = res as AppointmentDetail[]);
+   }
+ }
 
 
-}
+
