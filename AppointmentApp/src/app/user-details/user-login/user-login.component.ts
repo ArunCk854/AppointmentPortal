@@ -51,18 +51,24 @@ export class UserLoginComponent implements OnInit {
 
  
     this.service.UserLogin(Data).subscribe(
-      (res:any) => { 
-        //console.log(res.userDetailId);
-        //localStorage.setItem('userId','');
-      this.router.navigateByUrl('/bookanappointment');
-      this.toastr.success("login succes");
+      (res:any) => {
+        if (res.error){
+          this.toastr.show("Invalid credentials");
+          } 
+        
+       else{
+        this.router.navigateByUrl('/bookanappointment');
+        this.toastr.success("login succes");
+        //this.router.navigateByUrl('/home');
+        
+       }
      }, 
       err => {console.log(err)
         //this.loading=false;
         //this.errorMessage=console.error();
-        this.router.navigateByUrl('/home');
-      this.toastr.show("Invalid credentials")});
-
+        
+        //this.router.navigateByUrl('/');
+        this.toastr.show("Invalid credentials")});
       
       }
       this.resetForm(form);

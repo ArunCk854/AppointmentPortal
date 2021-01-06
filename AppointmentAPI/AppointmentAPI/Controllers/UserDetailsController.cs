@@ -94,7 +94,7 @@ namespace AppointmentAPI.Controllers
             }
             else
             {
-                return this.NotFound();
+                return BadRequest();
             }
         }
 
