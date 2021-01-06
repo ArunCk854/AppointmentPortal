@@ -13,6 +13,7 @@ import { AppointmentDetailFormComponent } from './appointment-details/appointmen
 import { HomeComponent } from './home/home.component';
 import { DoctorDetailsComponent } from './doctor-details/doctor-details.component';
 import { DoctorDetailFormComponent } from './doctor-details/doctor-detail-form/doctor-detail-form.component';
+import { UserSigninComponent } from './user-details/user-signin/user-signin.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DoctorDetailFormComponent } from './doctor-details/doctor-detail-form/d
     routingComponents,
     HomeComponent,
     DoctorDetailsComponent,
-    DoctorDetailFormComponent
+    DoctorDetailFormComponent,
+    UserSigninComponent
   ],
   imports: [
     BrowserModule,

@@ -83,6 +83,21 @@ namespace AppointmentAPI.Controllers
             return CreatedAtAction("GetUserDetail", new { id = userDetail.UserDetailId }, userDetail);
         }
 
+        [HttpPost]
+        [Route("login")]
+        public async Task<ActionResult<UserDetail>> UserLogin(UserDetail userDetail)
+        {
+            var theUserDetail = await _context.UserDetails.Where(d => d.UserName == userDetail.UserName).FirstOrDefaultAsync();
+            if (theUserDetail?.Password == userDetail.Password)
+            {
+                return this.Ok(theUserDetail);
+            }
+            else
+            {
+                return this.NotFound();
+            }
+        }
+
         // DELETE: api/UserDetails/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUserDetail(int id)

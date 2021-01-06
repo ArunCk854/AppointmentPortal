@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { UserDetailFormComponent } from './user-details/user-detail-form/user-detail-form.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserLoginComponent } from './user-details/user-login/user-login.component';
+import { UserSigninComponent } from './user-details/user-signin/user-signin.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path:'login', component:UserLoginComponent},
   { path:'bookanappointment', component:AppointmentDetailsComponent},
   { path:'home', component:HomeComponent},
-  { path:'doctor', component:DoctorDetailsComponent}
+  { path:'doctor', component:DoctorDetailsComponent},
+  { path:'signin', component:UserSigninComponent}
 
 ];
 
